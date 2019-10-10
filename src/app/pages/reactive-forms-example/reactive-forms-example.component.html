@@ -1,0 +1,39 @@
+<section class="sample-app-content">
+  <h1>Model-based Form Example:</h1>
+  <h2>Hello, {{ firstName.value }}, your gender is {{ gender?.label }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <p [class.has-error]="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <label>First Name:</label>
+      <input type="text" formControlName="firstName">
+      <span *ngIf="firstName.errors?.required && (firstName.dirty || firstName.touched)">This field is required</span>
+      <span *ngIf="firstName.errors?.forbiddenName && (firstName.dirty || firstName.touched)">Name {{ firstName.value }} is forbidden</span>
+    </p>
+
+    <p>
+      <label>Password:</label>
+      <input type="password" formControlName="password">
+    </p>
+
+    <p>
+      Choose gender:
+      <label *ngFor="let genderOption of genderOptions">
+        <input type="radio" formControlName="gender" [value]="genderOption">
+        {{ genderOption.label }}
+      </label>
+    </p>
+
+    <p>
+      <input type="checkbox" formControlName="shouldUseCity">
+    </p>
+
+    <select *ngIf="shouldUseCity"
+            formControlName="city">
+      <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+    </select>
+
+    <p>
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </p>
+  </form>
+</section>
