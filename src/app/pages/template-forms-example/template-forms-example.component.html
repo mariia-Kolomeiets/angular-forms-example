@@ -22,7 +22,7 @@
     <p>
       Choose gender:
       <label *ngFor="let genderOption of genderOptions">
-        <input type="radio" name="gender" ngModel [value]="genderOption" required>
+        <input type="radio" name="gender" [(ngModel)]="selectedGender" [value]="genderOption" required>
         {{ genderOption.label }}
       </label>
     </p>
