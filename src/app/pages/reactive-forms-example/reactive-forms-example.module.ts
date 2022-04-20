@@ -3,7 +3,7 @@ import { ReactiveFormsExampleComponent } from './reactive-forms-example.componen
 import { Route, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from '../../material/material.module';
 
 
 const reactiveFormsRoute: Route[] = [
