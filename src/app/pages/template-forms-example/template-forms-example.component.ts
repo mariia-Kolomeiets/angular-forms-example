@@ -4,7 +4,7 @@ import {FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-template-forms-example',
   templateUrl: './template-forms-example.component.html',
-  styleUrls: ['./template-forms-example.component.sass']
+  styleUrls: ['./template-forms-example.component.scss']
 })
 export class TemplateFormsExampleComponent implements OnInit {
   user = {

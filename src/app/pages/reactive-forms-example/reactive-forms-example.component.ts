@@ -21,7 +21,7 @@ function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 @Component({
   selector: "app-reactive-forms-example",
   templateUrl: "./reactive-forms-example.component.html",
-  styleUrls: ["./reactive-forms-example.component.sass"]
+  styleUrls: ["./reactive-forms-example.component.scss"]
 })
 export class ReactiveFormsExampleComponent implements OnDestroy {
   private componentIsDestroyed$ = new Subject<void>();
