@@ -1,52 +1,60 @@
-<section class="sample-app-content">
+<mat-card class="sample-app-content">
   <h1>Template-driven Form Example:</h1>
   <h2>Hello, {{ user.firstName }}, your gender is {{ selectedGender?.label }}</h2>
 
   <form #f="ngForm" (ngSubmit)="onFormSubmit(f)">
     <p [class.has-error]="userName.invalid && (userName.dirty || userName.touched)">
-      <label>First Name:</label>
-      <input type="text"
-             name="name"
-             #userName="ngModel"
-             [(ngModel)]="user.firstName" required>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First Name:</mat-label>
+        <input name="name" matInput type="text" #userName="ngModel" [(ngModel)]="user.firstName" required>
+      </mat-form-field>
       <span *ngIf="userName.errors?.required && (userName.dirty || userName.touched)">This field is required</span>
     </p>
 
     <p>
-      <label>Password:</label>
-      <input type="password"
-             name="password"
-             [(ngModel)]="user.password" required>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password:</mat-label>
+        <input type="password"
+               name="password"
+               [(ngModel)]="user.password" required matInput>
+      </mat-form-field>
     </p>
 
     <p>
-      Choose gender:
-      <label *ngFor="let genderOption of genderOptions">
-        <input type="radio" name="gender" [(ngModel)]="selectedGender" [value]="genderOption" required>
-        {{ genderOption.label }}
-      </label>
+      <label>Choose gender:</label>
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedGender" name="gender">
+        <ng-container *ngFor="let genderOption of genderOptions">
+          <mat-radio-button [value]="genderOption" required>{{ genderOption.label }}</mat-radio-button>
+        </ng-container>
+      </mat-radio-group>
     </p>
 
     <p>
-      <input type="checkbox" name="shouldUseCity" [(ngModel)]="shouldUseCity">
+      <mat-checkbox  name="shouldUseCity" [(ngModel)]="shouldUseCity">Select city</mat-checkbox>
     </p>
 
-    <select *ngIf="shouldUseCity"
-            [(ngModel)]="selectedCity" name="city">
-      <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
-    </select>
+    <mat-form-field *ngIf="shouldUseCity" appearance="fill">
+      <mat-label>Choose city:</mat-label>
+      <mat-select [(ngModel)]="selectedCity" name="city">
+        <mat-option *ngFor="let city of cities" [value]="city.id">
+          {{city.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <p>
-      <label>Stand-alone:</label>
 <!--      Stand-alone field, we do not need name,-->
 <!--      but instead of use ngModelOptions with standalone: true -->
-      <input type="text"
-             [(ngModel)]="standalone"
-             [ngModelOptions]="{ standalone: true }"
-             required>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Stand-alone:</mat-label>
+        <input type="text"
+               [(ngModel)]="standalone"
+               [ngModelOptions]="{ standalone: true }"
+               required matInput>
+      </mat-form-field>
     </p>
     <p>
-      <button type="submit" [disabled]="!f.valid">Submit</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Submit</button>
     </p>
   </form>
-</section>
+</mat-card>

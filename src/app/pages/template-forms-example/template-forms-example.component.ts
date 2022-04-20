@@ -8,20 +8,20 @@ import {FormGroup} from '@angular/forms';
 })
 export class TemplateFormsExampleComponent implements OnInit {
   user = {
-    firstName: "",
-    password: ""
+    firstName: '',
+    password: ''
   };
   standalone: string;
   cities = [
-    { id: 1, name: "Kharkiv" },
-    { id: 2, name: "Kiev" },
-    { id: 3, name: "Lviv" },
+    { id: 1, name: 'Kharkiv' },
+    { id: 2, name: 'Kiev' },
+    { id: 3, name: 'Lviv' },
   ];
   selectedCity: number;
   shouldUseCity: boolean;
   genderOptions = [
-    { gender: "m", label: "male" },
-    { gender: "f", label: "female" },
+    { gender: 'm', label: 'male' },
+    { gender: 'f', label: 'female' },
   ];
   selectedGender: {
     gender: string;

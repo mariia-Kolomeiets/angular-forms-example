@@ -1,3 +1,17 @@
 .has-error {
   color: red;
 }
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: blueviolet;
+  }
+}
